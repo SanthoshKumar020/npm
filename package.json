@@ -1,0 +1,7 @@
+{
+  "name": "ai-code-reviewer-proxy",
+  "version": "1.0.0",
+  "main": "api/review.js",
+  "type": "module",
+  "dependencies": {}
+}
