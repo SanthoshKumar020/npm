@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       headers: {
         'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://your-site.vercel.app' // Optional but preferred
+        'HTTP-Referer': 'https://npm-theta.vercel.app' // Update to your actual domain
       },
       body: JSON.stringify({
         model: 'mistralai/mistral-7b-instruct',
@@ -38,7 +38,9 @@ export default async function handler(req, res) {
     }
 
     const data = await response.json();
-    return res.status(200).json({ result: data.choices[0].message.content });
+
+    // 👇 Return in expected format
+    return res.status(200).json({ review: data.choices[0].message.content });
 
   } catch (err) {
     return res.status(500).json({ error: err.message });
